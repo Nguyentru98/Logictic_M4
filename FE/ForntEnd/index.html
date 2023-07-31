@@ -43,6 +43,8 @@
     <script src="../home/product/editProduct.js"></script>
     <script src="../home/product/deleteProduct.js"></script>
     <script src="../home/product/addProduct.js"></script>
+    <script src="../home/product/sortBy.js"></script>
+    <script src="../home/product/search.js"></script>
 </head>
 
 <body>
@@ -126,13 +128,12 @@
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Add Product</a>
-                            <script>showFormAdd()</script>
+                        <li class="nav-item"><a class="nav-link" href="#" onclick="showFormAdd()">Add Product</a>
                         </li>
                         <li class="dropdown active">
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">User Manage</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li> -->
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -215,13 +216,13 @@
                             <div class="col-12 col-sm-8 text-center text-sm-left">
                                 <div class="toolbar-sorter-right">
                                     <span>Sort by </span>
-                                    <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
-									<option data-display="Select">Nothing</option>
-									<option value="2">High Price → High Price</option>
-									<option value="3">Low Price → High Price</option>
+                                    <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD" onchange="sortBy(this)">
+									<option data-display="Select" value="listProduct">Nothing</option>
+									<option value="highPrice" >High Price → Low Price</option>
+									<option value="LowPrice" >Low Price → High Price</option>
 								</select>
                                 </div>
-                                <p>Showing all 4 results</p>
+                              
                             </div>
                             <div class="col-12 col-sm-4 text-center text-sm-right">
                                 <ul class="nav nav-tabs ml-auto">
@@ -348,10 +349,11 @@
 				<div class="col-xl-3 col-lg-3 col-sm-12 col-xs-12 sidebar-shop-left">
                     <div class="product-categori">
                         <div class="search-product">
-                            <form action="#">
-                                <input class="form-control" placeholder="Search here..." type="text">
+                            <form action="#" onsubmit="event.preventDefault(); search(this.searchInput.value);">
+                                <div id="search"></div>
+                                <input class="form-control" placeholder="Search here..." type="text" name="searchInput">
                                 <button type="submit"> <i class="fa fa-search"></i> </button>
-                            </form>
+                              </form>
                         </div>
                         <div class="filter-sidebar-left">
                             <div class="title-left">

@@ -7,7 +7,6 @@ declare class ProductController {
     update: (req: Request, res: Response) => Promise<void>;
     delete: (req: Request, res: Response) => Promise<void>;
     finByName: (req: Request, res: Response) => Promise<void>;
-    finById: (req: Request, res: Response) => Promise<void>;
     ASC: (req: Request, res: Response) => Promise<void>;
     DESC: (req: Request, res: Response) => Promise<void>;
 }

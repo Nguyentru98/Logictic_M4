@@ -4,7 +4,6 @@ declare class Productservice {
     getAll: () => Promise<any>;
     add: (product: any) => Promise<void>;
     update: (id: any, product: any) => Promise<any>;
-    findById: (id: any) => Promise<any>;
     findByName: (name: any) => Promise<any>;
     delete: (id: any) => Promise<any>;
     sortPrice: (price: any) => Promise<any>;

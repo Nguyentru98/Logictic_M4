@@ -7,7 +7,7 @@ const productService_1 = __importDefault(require("../service/productService"));
 class ProductController {
     constructor() {
         this.findAll = async (req, res) => {
-            let list;
+            let list = '';
             if (req.query.price) {
                 list = await this.productService.sortPrice(req.query.price);
             }
@@ -34,10 +34,6 @@ class ProductController {
         };
         this.finByName = async (req, res) => {
             let data = await this.productService.findByName(req.query.name);
-            res.json(data);
-        };
-        this.finById = async (req, res) => {
-            let data = await this.productService.findById(req.query.id);
             res.json(data);
         };
         this.ASC = async (req, res) => {

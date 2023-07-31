@@ -1,5 +1,6 @@
 import { Product } from "../entity/product";
 import {AppDataSource} from "../data-source";
+import { Like } from "typeorm";
 
 class Productservice {
     private Repository;
@@ -18,17 +19,17 @@ class Productservice {
     update = async ( id, product) => {
        return await this.Repository.update(id, product)
     }
-    findById = async(id) => {
-        return await this.Repository.find({
-            where: {
-               id: id  
-            },
-        })
-    }
+    // findById = async(id) => {
+    //     return await this.Repository.find({
+    //         where: {
+    //            id: id  
+    //         },
+    //     })
+    // }
     findByName = async(name) => {
         return await this.Repository.find({
             where: {
-               name: name  
+                name: Like(`%${name}%`),
             },
         })
     }
@@ -41,9 +42,6 @@ class Productservice {
                 order: {price: price}
         })
     }
-    // DESC = async () => {
-    //     return await this.Repository.find({order: {price: 'DESC'}})
-    // }
     findProduct = async (name) => {
         return await this.Repository.find({
         relations : {

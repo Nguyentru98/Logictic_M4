@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const product_1 = require("../entity/product");
 const data_source_1 = require("../data-source");
+const typeorm_1 = require("typeorm");
 class Productservice {
     constructor() {
         this.getAll = async () => {
@@ -14,17 +15,10 @@ class Productservice {
         this.update = async (id, product) => {
             return await this.Repository.update(id, product);
         };
-        this.findById = async (id) => {
-            return await this.Repository.find({
-                where: {
-                    id: id
-                },
-            });
-        };
         this.findByName = async (name) => {
             return await this.Repository.find({
                 where: {
-                    name: name
+                    name: (0, typeorm_1.Like)(`%${name}%`),
                 },
             });
         };

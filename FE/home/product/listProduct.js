@@ -12,15 +12,10 @@ function ListProduct() {
                     </div>
                     <img src="${item.image}" class="img-fluid" alt="Image">
                     <div class="mask-icon">
-                    <button onclick="showFormEdit(${item.id})">Edit</button>
-                    <button onclick="deleteProduct(${item.id})">Delete</button>
-                        <ul>
-                            <li"><a href="" data-toggle="tooltip" data-placement="right" title="View"><i></i></a></li>
-                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                        </ul>
-                        <a class="cart" href="#">Add to Cart</a>
+                        <button onclick="showFormEdit(${item.id})" class="edit">Edit</button>
+                        <button onclick="deleteProduct(${item.id})" class="delete">Delete</button>
                     </div>
+                    
                 </div>
                 <div class="why-text">
                     <h4>${item.name}</h4>
