@@ -2,7 +2,7 @@ import {Router} from "express";
 import productController from "../controller/productController";
 
 const productRouter = Router();
-
+productRouter.get('', productController.finById);
 productRouter.get('', productController.findAll);
 productRouter.post('/add', productController.add);
 productRouter.put('/update/:id', productController.update);

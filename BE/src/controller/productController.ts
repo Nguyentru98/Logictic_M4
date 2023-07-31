@@ -38,6 +38,11 @@ class ProductController {
         let data = await this.productService.findByName(req.query.name)
         res.json(data);
     }
+    finById = async ( req: Request, res: Response) => {
+        let data = await this.productService.findById(req.query.id)
+        res.json(data);
+    }
+
     ASC = async(req: Request, res: Response)=>{
         let data = await this.productService.ASC()
         res.json(data);
