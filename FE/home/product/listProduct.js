@@ -1,7 +1,10 @@
 function ListProduct() {
+    console.log("da o day");
+    const token = localStorage.getItem('token')
+
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     axios.get('http://localhost:3000/products').then((res)=>{
         let data = res.data
-        console.log(data)
         let str =''
         data.map(item => {
             str += `<div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
